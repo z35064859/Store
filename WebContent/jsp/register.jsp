@@ -111,15 +111,15 @@ font {
 
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
 		<font>会员注册</font>USER REGISTER
-		<form class="form-horizontal" style="margin-top:5px;">
+		<form class="form-horizontal" style="margin-top:5px;" action="${pageContext.request.contextPath}/UserServlet?method=regist" method="post">
 			 <div class="form-group">
-			    <label for="username" class="col-sm-2 control-label">用户名</label>
+			    <label for="username" name="username" class="col-sm-2 control-label">用户名</label>
 			    <div class="col-sm-6">
 			      <input type="text" class="form-control" id="username" placeholder="请输入用户名">
 			    </div>
 			  </div>
 			   <div class="form-group">
-			    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+			    <label for="inputPassword3" name="password" class="col-sm-2 control-label">密码</label>
 			    <div class="col-sm-6">
 			      <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
 			    </div>
@@ -131,19 +131,19 @@ font {
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			    <label for="inputEmail3" name="email" class="col-sm-2 control-label">Email</label>
 			    <div class="col-sm-6">
 			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
 			    </div>
 			  </div>
 			 <div class="form-group">
-			    <label for="usercaption" class="col-sm-2 control-label">姓名</label>
+			    <label for="usercaption" name="name" class="col-sm-2 control-label">姓名</label>
 			    <div class="col-sm-6">
 			      <input type="text" class="form-control" id="usercaption" placeholder="请输入姓名">
 			    </div>
 			  </div>
 			  <div class="form-group opt">  
-			  <label for="inlineRadio1" class="col-sm-2 control-label">性别</label>  
+			  <label for="inlineRadio1" name="sex" class="col-sm-2 control-label">性别</label>  
 			  <div class="col-sm-6">
 			    <label class="radio-inline">
 			  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 男
@@ -154,7 +154,7 @@ font {
 			</div>
 			  </div>		
 			  <div class="form-group">
-			    <label for="date" class="col-sm-2 control-label">出生日期</label>
+			    <label for="date" name="birthday" class="col-sm-2 control-label">出生日期</label>
 			    <div class="col-sm-6">
 			      <input type="date" class="form-control"  >		      
 			    </div>
