@@ -1,5 +1,7 @@
 package com.itcast.store.dao;
 
-public interface UserDao {
+import com.itcast.store.domain.User;
 
+public interface UserDao {
+    void userRegist(User user);
 }

@@ -1,5 +1,7 @@
 package com.itcast.store.service;
 
-public interface UserService {
+import com.itcast.store.domain.User;
 
+public interface UserService {
+    void userRegist(User user);
 }
