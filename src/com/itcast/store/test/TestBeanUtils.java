@@ -15,7 +15,7 @@ import com.itcast.store.domain.User;
 
 public class TestBeanUtils {
     @Test
-    public void test01(){
+    public void test01() throws ParseException{
         HashMap<String, String[]> map = new HashMap<>();
         map.put("username", new String[] {"admin"});
         map.put("password", new String[] {"123"});
@@ -30,19 +30,12 @@ public class TestBeanUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        //时间转换
         Date date=new Date();
-        DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
-        String format = df.format(date);
-        System.out.println(format);
-        String dates="2018-08-29";
-        Date dateN;
-        try {
-            dateN = df.parse(dates);
-            System.out.println(dateN);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(dateFormat.format(date));
+        String string="2018-09-23";
+        System.out.println(dateFormat.parse(string));
         
     }
 }
