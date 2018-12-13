@@ -31,7 +31,7 @@ public class MailUtils {
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
 				//设置发送人的帐号和密码
-				return new PasswordAuthentication("admin", "admin@store.com");
+				return new PasswordAuthentication("aaa", "aaa@store.com");
 			}
 		};
 
@@ -41,7 +41,7 @@ public class MailUtils {
 		Message message = new MimeMessage(session);
 
 		//设置发送者
-		message.setFrom(new InternetAddress("admin@store.com"));
+		message.setFrom(new InternetAddress("aaa@store.com"));
 
 		//设置发送方式与接收者
 		message.setRecipient(RecipientType.TO, new InternetAddress(email)); 
@@ -59,6 +59,6 @@ public class MailUtils {
 		Transport.send(message);
 	}
 	public static void main(String[] args) throws AddressException, MessagingException {
-		MailUtils.sendMail("aaa@store.com", "abcdefg");
+		MailUtils.sendMail("bbb@store.com", "abcdefg");
 	}
 }

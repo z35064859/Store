@@ -163,22 +163,20 @@ font {
 								placeholder="请输入姓名" name="name">
 						</div>
 					</div>
-					   <div class="form-group">
-                        <label for="usercaption" class="col-sm-2 control-label">电话</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" id="usercaption"
-                                placeholder="请输入电话" name="telephone">
-                        </div>
-                    </div>
+					<div class="form-group">
+						<label for="usercaption" class="col-sm-2 control-label">电话</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="usercaption"
+								placeholder="请输入电话" name="telephone">
+						</div>
+					</div>
 					<div class="form-group opt">
 						<label for="inlineRadio1" class="col-sm-2 control-label">性别</label>
 						<div class="col-sm-6">
 							<label class="radio-inline"> <input type="radio"
-								id="inlineRadio1" value="男"
-								name="sex"> 男
+								id="inlineRadio1" value="男" name="sex"> 男
 							</label> <label class="radio-inline"> <input type="radio"
-								id="inlineRadio2" value="女"
-								name="sex"> 女
+								id="inlineRadio2" value="女" name="sex"> 女
 							</label>
 						</div>
 					</div>

@@ -31,11 +31,13 @@ public class TestBeanUtils {
             e.printStackTrace();
         }
         //时间转换
-        Date date=new Date();
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(dateFormat.format(date));
-        String string="2018-09-23";
-        System.out.println(dateFormat.parse(string));
+      Date date=new Date();
+      DateFormat dt=new SimpleDateFormat("yyyy-MM-dd");
+      String dt1=dt.format(date);
+      String str="2008-01-01";
+      Date parse = dt.parse(str);
+      System.out.println(dt1);
+      System.out.println(parse);
         
     }
 }

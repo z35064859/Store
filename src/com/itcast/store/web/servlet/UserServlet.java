@@ -34,6 +34,12 @@ public class UserServlet extends BaseServlet {
         return "/jsp/register.jsp";
     }
 
+    // 登录页面跳转loginUI
+    public String loginUI(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        return "/jsp/login.jsp";
+    }
+
     // 注册userRegist
     public String userRegist(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, IllegalAccessException, InvocationTargetException {
@@ -46,7 +52,7 @@ public class UserServlet extends BaseServlet {
         user.setUid(UUIDUtils.getId());
         user.setState(0);
         user.setCode(UUIDUtils.getCode());
-        
+
         // 调用业务层注册功能
 
         try {
@@ -60,6 +66,31 @@ public class UserServlet extends BaseServlet {
             request.setAttribute("msg", "注册失败，请重新注册");
         }
         return "/jsp/info.jsp";
+    }
+
+    public String userLogin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // 获取用户数据
+        User user = new User();
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        System.out.println(parameterMap );
+        MyBeanUtils.populate(user, parameterMap);
+        // 调用登录功能
+        UserService userService = new UserServiceImp();
+        User user2 = null;
+        try {
+            user2 = userService.userLogin(user);
+            //成功，存Session
+            request.getSession().setAttribute("loginUser", user2);
+            response.sendRedirect("/store_v5/index.jsp");
+            return null;
+        } catch (Exception e) {
+            // TODO: handle exception
+           String msString= e.getMessage();
+            request.setAttribute("msg", msString);
+            return "/jsp/info.jsp";
+        }
+   
     }
 
 }

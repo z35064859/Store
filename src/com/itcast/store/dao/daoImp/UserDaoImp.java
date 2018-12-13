@@ -3,10 +3,12 @@ package com.itcast.store.dao.daoImp;
 import java.sql.SQLException;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import com.itcast.store.dao.UserDao;
 import com.itcast.store.domain.User;
 import com.itcast.store.utils.JDBCUtils;
+
 
 public class UserDaoImp implements UserDao{
 
@@ -21,6 +23,18 @@ public class UserDaoImp implements UserDao{
                 user.getBirthday(),user.getSex(),user.getState(),
                 user.getCode()};
         qr.update(sql, params);
+    }
+
+    @Override
+    public User userLogin(User user) throws SQLException{
+        System.out.println(user.getUsername()+""+user.getPassword());
+        User user2=new User();
+        String sql="select * from user where username=? and password=?";
+        QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
+        return qr.query(sql, new BeanHandler<User>(User.class),user.getUsername(),user.getPassword());
+       
+        // TODO Auto-generated method stub
+        
     }
     
 }
