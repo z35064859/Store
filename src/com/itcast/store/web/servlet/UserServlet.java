@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import javax.mail.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +39,12 @@ public class UserServlet extends BaseServlet {
     public String loginUI(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         return "/jsp/login.jsp";
+    }
+    // 登录页面跳转loginUI
+    public String loginOUT(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getSession().removeAttribute("loginUser");
+        return "/jsp/index.jsp";
     }
 
     // 注册userRegist

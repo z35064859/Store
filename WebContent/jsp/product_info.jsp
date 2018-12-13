@@ -27,12 +27,12 @@
 	</head>
 
 	<body>
-
+            <%@include file="/jsp/header.jsp" %>
 		
 			<!--
             	描述：菜单栏
             -->
-			<div class="container-fluid">
+			<%-- <div class="container-fluid">
 				<div class="col-md-4">
 					<img src="${pageContext.request.contextPath}/img/logo2.png" />
 				</div>
@@ -87,7 +87,7 @@
 					<!-- /.container-fluid -->
 				</nav>
 			</div>
-
+ --%>
 
 		<div class="container">
 			<div class="row">

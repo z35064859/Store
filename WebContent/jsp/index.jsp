@@ -19,8 +19,8 @@
 
 <body>
 	<div class="container-fluid">
-
-		<!--
+        <%@include file="/jsp/header.jsp" %>
+		<%-- <!--
             	描述：菜单栏
             -->
 		<div class="container-fluid">
@@ -42,7 +42,7 @@
 					empty sessionScope.loginUser}">
 					<li>欢迎${sessionScope.loginUser.username }</li>
 					<li><a
-						href="${pageContext.request.contextPath}/UserServlet?method=loginOut">退出</a></li>
+						href="${pageContext.request.contextPath}/UserServlet?method=loginOUT">退出</a></li>
 					<li><a href="${pageContext.request.contextPath}/jsp/cart.jsp">购物车</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/jsp/order_list.jsp">我的订单</a></li>
@@ -50,6 +50,7 @@
 				</ol>
 			</div>
 		</div>
+		<%@include file="/jsp/info.jsp" %>
 		<!--
             	描述：导航条
             -->
@@ -91,7 +92,7 @@
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
-		</div>
+		</div> --%>
 
 		<!--
             	描述：轮播条

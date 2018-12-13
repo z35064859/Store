@@ -27,8 +27,8 @@
 	</head>
 
 	<body>
-
-			<!--
+            <%@include file="/jsp/header.jsp" %>
+			<%-- <!--
             	描述：菜单栏
             -->
 			<div class="container-fluid">
@@ -85,7 +85,7 @@
 					<!-- /.container-fluid -->
 				</nav>
 			</div>
-
+ --%>
 		</nav>
 
 		<div class="container">

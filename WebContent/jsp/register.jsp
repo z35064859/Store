@@ -43,10 +43,10 @@ font {
 </style>
 </head>
 <body>
+<%@include file="/jsp/header.jsp" %>
 
 
-
-
+<%-- 
 	<!--
             	描述：菜单栏
             -->
@@ -107,7 +107,7 @@ font {
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
-	</div>
+	</div> --%>
 
 
 
