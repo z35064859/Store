@@ -32,8 +32,6 @@ public class UserDaoImp implements UserDao{
         String sql="select * from user where username=? and password=?";
         QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
         return qr.query(sql, new BeanHandler<User>(User.class),user.getUsername(),user.getPassword());
-       
-        // TODO Auto-generated method stub
         
     }
     

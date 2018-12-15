@@ -7,49 +7,43 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@SuppressWarnings("serial")
+
+
 public class BaseServlet extends HttpServlet {
     @Override
-    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");// 处理响应编码
+    public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        /**
-         * 1. 获取method参数，它是用户想调用的方法 2. 把方法名称变成Method类的实例对象 3. 通过invoke()来调用这个方法
-         */
-        String methodName = request.getParameter("method");
-        Method method = null;
-        /**
-         * 2. 通过方法名称获取Method对象
-         */
-        try {
-            method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+        // localhost:8080/store/productServlet?method=addProduct
+        String method = req.getParameter("method");
 
-        } catch (Exception e) {
-            throw new RuntimeException("您要调用的方法：" + methodName + "它不存在！", e);
+        if (null == method || "".equals(method) || method.trim().equals("")) {
+            method = "execute";
         }
 
-        /**
-         * 3. 通过method对象来调用它
-         */
+        // 注意:此处的this代表的是子类的对象
+        // System.out.println(this);
+        // 子类对象字节码对象
+        Class clazz = this.getClass();
+
         try {
-            String result = (String) method.invoke(this, request, response);
-            if (result != null && !result.trim().isEmpty()) {// 如果请求处理方法返回不为空
-                int index = result.indexOf(":");// 获取第一个冒号的位置
-                if (index == -1) {// 如果没有冒号，使用转发
-                    request.getRequestDispatcher(result).forward(request, response);
-                } else {// 如果存在冒号
-                    String start = result.substring(0, index);// 分割出前缀
-                    String path = result.substring(index + 1);// 分割出路径
-                    if (start.equals("f")) {// 前缀为f表示转发
-                        request.getRequestDispatcher(path).forward(request, response);
-                    } else if (start.equals("r")) {// 前缀为r表示重定向
-                        response.sendRedirect(request.getContextPath() + path);
-                    }
+            // 查找子类对象对应的字节码中的名称为method的方法.这个方法的参数类型是:HttpServletRequest.class,HttpServletResponse.class
+            Method md = clazz.getMethod(method, HttpServletRequest.class, HttpServletResponse.class);
+            if (null != md) {
+                String jspPath = (String) md.invoke(this, req, resp);
+                if (null != jspPath) {
+                    req.getRequestDispatcher(jspPath).forward(req, resp);
                 }
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+
     }
+
+    // 默认方法
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+        return null;
+    }
+
 
 }
