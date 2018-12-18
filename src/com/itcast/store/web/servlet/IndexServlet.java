@@ -1,8 +1,11 @@
 package com.itcast.store.web.servlet;
 
 import com.itcast.store.domain.Category;
+import com.itcast.store.domain.Product;
 import com.itcast.store.service.CategoryService;
+import com.itcast.store.service.ProductService;
 import com.itcast.store.service.serviceImp.CategoryServiceImp;
+import com.itcast.store.service.serviceImp.ProductServiceImp;
 import com.itcast.store.web.base.BaseServlet;
 import java.util.List;
 
@@ -21,14 +24,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(asyncSupported = true, urlPatterns = { "/IndexServlet" })
 public class IndexServlet extends BaseServlet {
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CategoryService cService = new CategoryServiceImp();
-        List<Category> categoryList;
+    public String execute(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
         try {
-            categoryList = cService.getAllcats();
-            //System.out.println(categoryList);
-            request.setAttribute("allCats", categoryList);
-            
+            ProductService productService = new ProductServiceImp();
+            List<Product> listHots;
+            listHots = productService.findHots();
+            List<Product> listNews = productService.findNews();
+            request.setAttribute("hots", listHots);
+            request.setAttribute("newProducts", listNews);
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

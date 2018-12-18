@@ -7,8 +7,7 @@ import com.itcast.store.domain.Category;
 
 public interface CategoryService {
 
-
-
     List<Category> getAllcats() throws SQLException;
+
 
 }

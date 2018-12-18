@@ -15,10 +15,10 @@ public class CategoryServiceImp implements CategoryService {
     @Override
     public List<Category> getAllcats() throws SQLException {
         // TODO Auto-generated method stub
-        CategoryDao categoryDao=new CategoryDaoImp();
+        CategoryDao categoryDao = new CategoryDaoImp();
         return categoryDao.getAllcats();
-        
-       
+
     }
+
 
 }

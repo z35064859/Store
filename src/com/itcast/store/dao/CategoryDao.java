@@ -9,4 +9,8 @@ public interface CategoryDao {
 
     List<Category> getAllcats() throws SQLException;
 
+    List<Category> findNews();
+
+    List<Category> findHots();
+
 }
