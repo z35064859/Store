@@ -4,11 +4,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.itcast.store.dao.ProductDao;
 import com.itcast.store.domain.Product;
 import com.itcast.store.utils.JDBCUtils;
+
 
 public class ProductDaoImp implements ProductDao {
 
@@ -28,6 +30,14 @@ public class ProductDaoImp implements ProductDao {
         List<Product> queryH = queryRunner.query(sqlN, new BeanListHandler<Product>(Product.class));
         System.out.println(queryH);
         return queryH;
+    }
+
+    @Override
+    public Product fingProductById(String str) throws SQLException{
+        String findSql="select * from product where pid="+str+"";
+        QueryRunner queryRunner=new QueryRunner(JDBCUtils.getDataSource());
+        Product product=queryRunner.query(findSql, new BeanHandler<Product>(Product.class));
+        return product;
     }
 
 }

@@ -22,14 +22,15 @@ import redis.clients.jedis.Jedis;
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/ProductServlet" })
 public class ProductServlet extends BaseServlet {
-	//@Override
-/*	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-	    ProductService productService=new ProductServiceImp();
-	    List<Product> listHots=productService.findHots();
-	    List<Product> listNews=productService.findNews();
-	    req.setAttribute("hots", listHots);
-	    req.setAttribute("newProducts", listNews);
-	    return null;
-	}*/
+    // @Override
+    public String findProductByPid(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+      String str = req.getParameter("pid");
+      System.out.println(str);
+      ProductService productService=new ProductServiceImp();
+      Product findProductById = productService.findProductById(str);
+      req.setAttribute("pcInfo", findProductById);
+      System.out.println(findProductById );
+        return "/jsp/product_info.jsp";
+    }
 
 }

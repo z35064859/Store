@@ -93,12 +93,12 @@
 				<c:forEach items="${hots }" var="hot">
 					<div class="col-md-2"
 						style="text-align: center; height: 200px; padding: 10px 0px;">
-						<a href="product_info.htm"> <img
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${hot.pid}" > <img
 							src="${pageContext.request.contextPath}/${hot.pimage }"
 							width="130" height="130" style="display: inline-block;">
 						</a>
 						<p>
-							<a href="product_info.html" style='color: #666'>${hot.pname }</a>
+							<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${hot.pid}" style='color: #666'>${hot.pname }</a>
 						</p>
 						<p>
 							<font color="#E4393C" style="font-size: 16px">&yen;${hot.market_price }</font>
@@ -143,12 +143,12 @@
 				<c:forEach items="${newProducts }" var="newss">
 					<div class="col-md-2"
 						style="text-align: center; height: 200px; padding: 10px 0px;">
-						<a href="product_info.htm"> <img
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${newss.pid}"> <img
 							src="${pageContext.request.contextPath}/${newss.pimage }"
 							width="130" height="130" style="display: inline-block;">
 						</a>
 						<p>
-							<a href="product_info.html" style='color: #666'>${newss.pname }</a>
+							<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${newss.pid}" style='color: #666'>${newss.pname }</a>
 						</p>
 						<p>
 							<font color="#E4393C" style="font-size: 16px">&yen;${newss.market_price }</font>

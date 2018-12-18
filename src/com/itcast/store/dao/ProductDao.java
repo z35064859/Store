@@ -11,4 +11,6 @@ public interface ProductDao {
 
     List<Product> findHots() throws SQLException;
 
+    Product fingProductById(String str) throws SQLException;
+
 }

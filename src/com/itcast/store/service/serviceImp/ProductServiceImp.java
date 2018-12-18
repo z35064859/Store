@@ -24,4 +24,11 @@ public class ProductServiceImp implements ProductService {
         return listNews;
     }
 
+    @Override
+    public Product findProductById(String str) throws SQLException {
+        ProductDao productDao=new ProductDaoImp();
+        Product product=productDao.fingProductById(str);
+        return product;
+    }
+
 }

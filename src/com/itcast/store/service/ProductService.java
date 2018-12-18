@@ -11,4 +11,6 @@ public interface ProductService {
 
     List<Product> findNews() throws SQLException;
 
+    Product findProductById(String str) throws SQLException;
+
 }
