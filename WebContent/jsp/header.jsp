@@ -112,7 +112,7 @@
 			//alert(data);
 
 			$.each(data, function(i, obj) {
-				var li = "<li><a href='#'>"+obj.cname+"</a></li>";
+				var li = "<li><a href='/store_v5/ProductServlet?method=findProductsByCidWithPage&num=1&cid="+obj.cid+"'>"+obj.cname+"</a></li>";
 				$("#myUL").append(li);
 			})
 		}, "json")

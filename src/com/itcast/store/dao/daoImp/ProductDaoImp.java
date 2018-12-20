@@ -10,6 +10,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import com.itcast.store.dao.ProductDao;
 import com.itcast.store.domain.Product;
 import com.itcast.store.utils.JDBCUtils;
+import com.itcast.store.utils.PageModel;
 
 
 public class ProductDaoImp implements ProductDao {
@@ -39,5 +40,8 @@ public class ProductDaoImp implements ProductDao {
         Product product=queryRunner.query(findSql, new BeanHandler<Product>(Product.class));
         return product;
     }
+
+
+ 
 
 }
