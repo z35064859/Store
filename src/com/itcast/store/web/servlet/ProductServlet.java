@@ -40,7 +40,7 @@ public class ProductServlet extends BaseServlet {
        System.out.println(cid+" "+num);
        ProductService productService=new ProductServiceImp();
        PageModel pModel=productService.findProductsByCidWithPage(cid,num);
-       System.out.println(pModel.getList());
+       System.out.println("列表"+pModel.getList());
        request.setAttribute("page", pModel);
        return "/jsp/product_list.jsp";
     }

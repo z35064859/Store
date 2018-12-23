@@ -58,10 +58,10 @@ body {
 					</a>
 					<p>
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}"
-							style='color: green'>p.pname</a>
+							style='color: green'>${p.pname}</a>
 					</p>
 					<p>
-						<font color="#FF0000">商城价：&yen;p.market_price</font>
+						<font color="#FF0000">商城价：&yen;${ p.market_price}</font>
 					</p>
 				</div>
 			</c:forEach>
