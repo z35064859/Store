@@ -87,7 +87,8 @@ body {
 
 							<div style="margin: 20px 0 10px 0;; text-align: center;">
 								<%--加入到购物车 --%>
-								<a href="${pageContext.request.contextPath}/jsp/cart.jsp"> <input
+								<!-- 取消链接的默认行为 -->
+								<a href="javascript:void(0)"> <input
 									style="background: url('${pageContext.request.contextPath}/img/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;"
 									value="加入购物车" type="submit">
 								</a> &nbsp;收藏商品

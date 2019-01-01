@@ -29,7 +29,7 @@ public class CarItem {
     public double getSubTotal() {
         return subTotal;
     }
-    public void setSubTotal(double subTotal) {
+    public void setSubTotal() {
         this.subTotal = product.getShop_price()*num;
     }
     @Override
